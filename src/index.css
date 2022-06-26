@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .navbar {
+    @apply relative flex flex-wrap items-center justify-around px-6 py-4 bg-violet-600 mb-4;
+  }
+  .header-link {
+    @apply px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75;
+  }
+  .form-container {
+    @apply relative w-full mb-3;
+  }
+  .form-label {
+    @apply block uppercase text-gray-700 text-xs font-bold mb-2;
+  }
+  .form-input {
+    @apply border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full;
+  }
+  .card {
+    @apply flex flex-col break-words w-full mb-6 shadow-2xl rounded-lg;
+  }
+}
+
+a {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+}
