@@ -18,6 +18,7 @@ const headers = { Authorization: `Bearer ${localStorage.getItem('token')}` };
 const michisRequests = {
   get: (url: string) => axiosInstance.get<Michi>(url).then(responseBody),
   post: (url: string, body: Michi) => axiosInstance.post<Michi>(url, body, { headers }).then(responseBody),
+  put: (url: string, body: Michi) => axiosInstance.put<Michi>(url, body, { headers }).then(responseBody),
   delete: (url: string) => axiosInstance.delete<Michi>(url, { headers }).then(responseBody),
 };
 
@@ -25,5 +26,6 @@ export const michisAPI = {
   getMichis: (): Promise<MichiResponse> => michisRequests.get('/michis/'),
   getMichiById: (id: string): Promise<Michi> => michisRequests.get(`/michis/${id}`),
   addMichi: (michi: Michi): Promise<Michi> => michisRequests.post('/michis', michi),
+  editMichi: (michi: Michi): Promise<Michi> => michisRequests.put(`/michis/${michi._id}`, michi),
   deleteMichi: (id: string): Promise<Michi> => michisRequests.delete(`/michis/${id}`),
 };
